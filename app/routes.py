@@ -10,7 +10,9 @@ app.config['MONGO_DBNAME'] = 'computer_accounts'
 app.config['MONGO_URI'] ='mongodb+srv://admin:LxVreieNzqk568n@cluster0-0ytxr.mongodb.net/computer_accounts?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
+laptop_page=[]
 username=''
+address=''
 laptops=[]
 model.add_list(laptops)
 @app.route('/')
@@ -63,17 +65,22 @@ def results():
 
 @app.route('/laptop/<laptop>')
 def laptop(laptop):
+    global laptop_page
     global laptops
     laptop = int(laptop)
     laptop_page = laptops[laptop]
     return render_template('laptops.html',laptop_page=laptop_page)
 
-@app.route('/checkout/<rent_laptop>')
-def checkout(rent_laptop):
-    global laptops
-    laptop = int(rent_laptop)
-    laptop_page = laptops[laptop]
-    return render_template('checkout.html',laptop_page=laptop_page)
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
+
+@app.route('/checkout2',methods=['GET','POST'])
+def checkout2():
+    if request.method=='POST':
+        address=
+    return render_template('checkout2.html')
+
 
 @app.route('/success', methods=['GET','POST'])
 def success():
