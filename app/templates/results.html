@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title> Search Results </title>
+        <style>
+            img {
+                width:150px;
+                height:170px;
+                border-style:outset;
+            }
+            img:hover {
+                background-color:red;
+            }
+                
+            .box {
+                margin-bottom: 10px;
+                border-bottom:solid;
+                padding:20px;
+            
+            }
+            
+            .box p {
+                color:white;
+            }
+            body {
+                background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+                color:#e44c65;
+                
+            }
+            ul {
+                list-style-type:none;
+                margin:0;
+                padding:0;
+            }
+            a:link {
+                text-decoration: none;
+                color:#e44c65;
+            }
+            a:visited {
+                color:#e44c65;
+            }
+            a:hover {
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Here's what we have:</h1>
+        <ul>
+        {% for laptop in laptops %}
+        <li style='white-space:np-wrap;'>
+        <div class='box'>
+        <a href='/laptop/{{laptop.id}}'>{{laptop.name}}</a>
+        <p></p>
+        <img src={{laptop.image}}>
+        </div>
+        </li>
+            {% endfor %}
+        </ul>
+        <a href="/index">Start Over</a>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> {{laptop_page['name']}}</title>
+        <style>
+        
+            img {
+                width:20%;
+                height:30%;
+                padding:10px;
+                border-right:solid;
+                border-bottom:solid;
+            }
+
+
+            body {
+                background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+                color:#e44c65;
+            }
+            body p {
+                position:fixed;
+                color:white;
+            }
+
+            
+            
+        </style>
+    </head>
+    <body>
+        <h1>{{laptop_page['name']}}</h1>
+        <div>
+        
+        <img src={{laptop_page['image']}}> 
+        <p>The {{laptop_page['name']}} </p>
+        
+        </div>
+    </body>
+</html>

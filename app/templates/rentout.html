@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> Rent: {{laptops[0]['name']}}</title>
+    </head>
+    <body>
+        <h1> Rental:</h1>
+        <h3> {{laptops[0]['name']}} costs {{laptops[0]['rental']}} to rent every month.</h3>
+        <form method = 'post' action= 'success'>
+            <ul>
+            <li>
+            How many months do you wish to rent for:
+            <input type='number' name='months'>
+            </li>
+            <li>
+            Credit Card Number:
+            <input type='number' name='credit'>
+            </li>
+            <li>
+            Pin Number:
+            <input type='number' name='PIN'>
+            </li>
+            <input type='submit' name='submit' value='Rent'>
+            </ul>
+        </form>
+        <a href='/index'>Start Over</a>
+    </body>
+</html>

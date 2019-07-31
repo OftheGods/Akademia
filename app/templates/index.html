@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Akademia</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/index"><img src='https://files.slack.com/files-pri/TL8AXJYH4-FLUV83SRJ/screenshot_2019-07-29_at_2.55.46_pm_-_edited.png' width="450" height="150" ></a>
+					<form method='post' action='/results'>
+					<input type='text' name='search' placeholder='Search...'>
+					</form>
+					</h1>
+					<nav id="nav">
+
+						<ul>
+							<li><a href="/index">Home</a></li>
+							<li>
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+											<li><a href="#">Option 3</a></li>
+											<li><a href="#">Option 4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="elements.html">Elements</a></li>
+							{% if username not in session %}
+							<li><a href="/sign_up" class="button primary">Sign Up</a></li>
+							<li><a href="/login" class="button primary">Log In</a></li>
+							{% else %}
+							<li><h1>Welcome: {{user_name}}</h1></li>
+							{% endif %}
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+							<h2>"Education is the most powerful weapon which you can use to change the world" <br /> 
+							- Nelson Mandela </h2>
+							<p>And yet education is not as unrestricted as we would hope,<br />
+							And students may face obstacles on their educational pathways</p>
+						</header>
+					</div>
+					<div>
+					<a href="#one" class="goto-next scrolly">Next</a>
+					</div>
+				</section>
+
+			<!-- One -->
+				<section id="one" class="spotlight style1 bottom">
+					<span class="image fit main"><img src="https://www.responsiveclassroom.org/wp-content/uploads/2016/04/DSC_2388-1024x682.jpg" alt="" /></span>
+					<div class="content">
+						<div class="container">
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<header>
+										<h2>Technology is one of those obstacles</h2>
+										<p>High-schoolers and college students are unable to afford the technology they need for their classes</p>
+									</header>
+								</div>
+								<div class="col-4 col-12-medium">
+									<p> Recently, more and more schools are requiring that students have laptops as technology becomes more integrated into their curriculums.
+									Google leads this transformation and has in many ways took over the classrooms with their education apps, including Google Classroom and Gmail, and low-cost 
+									laptops called Chromebooks.
+										
+										</p>
+								</div>
+								<div class="col-4 col-12-medium">
+									<p>  About 30% of the Black and Hispanic youth do not have access to computers at home and about 50% do not use Internet at home. Chromebooks can barely do anything without Internet, so these students are left without means to complete
+									homework or projects. Regular laptops are much better for students, however schools and students who are short on cash can't afford to buy laptops.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Two -->
+				<section id="two" class="spotlight style2 right">
+					<span class="image fit main"><img src="https://assets.pcmag.com/media/images/510084-asus-vivobook-f510ua-lead-image.jpg" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>We provide affordable Laptops to Rent </h2>
+							<p>We offer a variety of laptops that students can either buy for low prices or rent for however long they need it.</p>
+						</header>
+						<p>We buy our laptops at a discount from schools and universities who have upgraded their hardware and no longer require their laptops. We then resell these
+						laptops or rent them, however if a student rents one of our laptops for over a year, we'll offer them a huge discount for buying the laptop.
+						</p>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Three -->
+				<section id="three" class="spotlight style3 left">
+					<span class="image fit main bottom"><img src="https://images.unsplash.com/photo-1483425571841-9662f86c7154?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>Our Promise to the Customer:</h2>
+							<p>We guarantee that all of our laptops are fully functional and ready to be used for any kind of schoolwork they may have.</p>
+						</header>
+						<p>Buying and Selling any kind of used technology comes with risks including condition, quality, age. Basically, whether it will work or not. At Akademia
+						we guarantee that all that we sell will work </p>
+					</div>
+					<a href="#four" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Four -->
+				<section id="four" class="wrapper style1 special fade-up">
+					<div class="container">
+						<header class="major">
+							<h2>Akademia envisions a world in which all students are able to access affordable technology so that they may flourish as scholars and realize their full potential</h2>
+
+						</header>
+						
+						<footer class="major">
+							<ul class="actions special">
+								<form method='post' action='/results'>
+									<input type="submit" name='search' value='View our Laptops'>
+								</form>
+							</ul>
+						</footer>
+					</div>
+				</section>
+
+			<!-- Five -->
+				<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Stay updated!!!</h2>
+							<p></p>
+						</header>
+						<form method="post" action="#" class="cta">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
+							</div>
+						</form>
+						
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/static/assets/js/browser.min.js"></script>
+			<script src="/static/assets/js/breakpoints.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<script src="/static/assets/js/main.js"></script>
+
+	</body>
+</html>
