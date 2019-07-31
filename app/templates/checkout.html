@@ -1,24 +1,98 @@
 <html>
     <head>
-        <title>Checkout: {{laptops[0]['name']}}</title>
+        <title>Checkout: {{laptop_page['name']}}</title>
+        <style>
+        body {
+            background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+            color:#e44c65;
+        }
+        body h1 {
+            color:white;
+        }
+        
+        
+        input[type=text] {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition: border-color 1.0s ease;
+		    transition: margin-bottom 0.7s ease;
+            width:30%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+		    text-decoration: none;
+            margin:10px;
+            color:white;
+        }
+        
+        input[type=text]:focus {
+            border-style:none;
+            border-bottom:solid;
+            border-bottom-color: #e44c65;
+            border-radius:0px;
+            margin-bottom:30px;
+        }
+        input[type=submit] {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition:background-color 1.0s ease;
+            width:10%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+		    text-decoration: none;
+            margin:10px;
+            color:white;
+        }
+        input[type=submit]:hover {
+            background-color:#e44c65;
+            border-style:none;
+        }
+        ul {
+            list-style-type:none;
+        }
+        
+        </style>
     </head>
     <body>
-        <h1>Welcome to Checkout:</h1>
-        <h3> {{laptops[0]['name']}} costs ${{laptops[0]['price']}}</h2>
-        <img src={{laptops[0]['image']}}>
-        <form method='post' action='/success'>
-            <ul>
-            <li>
-            Credit Card Number:
-            <input type='number' name='credit'>
-            </li>
-            <li>
-            PIN:
-            <input type='number' name='PIN'>
-            </li>
-            <input type='submit' name='submit' value='Buy'>
-            </ul>
-        </form>
-        <a href='/index'>Start Over</a>
+        <h1> Shipping Directions: </h1>
+        <ul>
+        State/Province/Region
+        <li><input type='text' name='State' placeholder='State...'></li>
+        City
+        <li><input type='text' name='City' placeholder='City...'></li>
+        Street Address
+        <li><input type='text' name='Street_and_Number' placeholder='Street and number, P.O. box, c/o.'></li>
+        <li><input type='text' name='Apt_and_Suite' placeholder='Apartment, suite, unit, building, floor, etc.'></li>
+        Zip Code
+        <li><input type='text' name= 'Zip_Code' placeholder='Zip Code...'></li>
+        Phone Number
+        <li><input type='text' name='Phone_Number' placeholder='Phone Number...'></li>
+        </ul>
+        <input type='submit' value='Next Step'>
     </body>
 </html>

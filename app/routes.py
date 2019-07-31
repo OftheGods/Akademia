@@ -68,19 +68,12 @@ def laptop(laptop):
     laptop_page = laptops[laptop]
     return render_template('laptops.html',laptop_page=laptop_page)
 
-@app.route('/checkout', methods=['GET','POST'])
-def checkout():
+@app.route('/checkout/<rent_laptop>')
+def checkout(rent_laptop):
     global laptops
-    if request.method=='POST':
-        user_data = request.form
-        if user_data['buy_rent']=='Buy Item':
-            return render_template('checkout.html',laptops=laptops)
-        elif user_data['buy_rent'] =='Rent Item':
-            return render_template('rentout.html',laptops=laptops)
-        else:
-            return 'Hah noob'
-    else:
-        return redirect('/index')
+    laptop = int(rent_laptop)
+    laptop_page = laptops[laptop]
+    return render_template('checkout.html',laptop_page=laptop_page)
 
 @app.route('/success', methods=['GET','POST'])
 def success():
