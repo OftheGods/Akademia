@@ -44,7 +44,7 @@ def index():
                     session['username'] = username
                     return redirect('/index')
                 
-            
+        
     else:
         return render_template('index.html',laptops=laptops,username=username)
 
@@ -77,9 +77,12 @@ def checkout():
 
 @app.route('/checkout2',methods=['GET','POST'])
 def checkout2():
+    global address
     if request.method=='POST':
-        address=
-    return render_template('checkout2.html')
+        address=request.form
+        return render_template('checkout2.html')
+    else:
+        return redirect ('/index')
 
 
 @app.route('/success', methods=['GET','POST'])

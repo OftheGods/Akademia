@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Checkout: {{laptop_page['name']}}</title>
+        <title>Checkout</title>
         <style>
         body {
             background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
@@ -80,7 +80,7 @@
     </head>
     <body>
         <h1> Shipping Directions: </h1>
-        <form method=post action=/checkout>
+        <form method=post action=/checkout2>
         <ul>
         State/Province/Region
         <li><input type='text' name='State' placeholder='State...'></li>
@@ -93,6 +93,8 @@
         <li><input type='text' name= 'Zip_Code' placeholder='Zip Code...'></li>
         Phone Number
         <li><input type='text' name='Phone_Number' placeholder='Phone Number...'></li>
+        Email
+        <li><input type='text' name='Email' placeholder='Email...'></li>
         </ul>
         <input type='submit' value='Next Step'>
         </form>
