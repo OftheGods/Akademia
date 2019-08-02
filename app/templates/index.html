@@ -4,12 +4,18 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
+
 <html>
 	<head>
+		<?php 
+		session_start();
+		?>
+		
 		<title>Akademia</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<link rel="stylesheet" href="static/index.css" />
 		<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload landing">
@@ -17,41 +23,35 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="/index"><img src='https://files.slack.com/files-pri/TL8AXJYH4-FLUV83SRJ/screenshot_2019-07-29_at_2.55.46_pm_-_edited.png' width="450" height="150" ></a>
+					<audio autoplay>
+  <source src="static/landing2.mp3" type="audio/mp3">
+</audio>
+					<div>
+					<h1 id="logo"><a href="/index">Akademia</a>
+					</h1>
 					<form method='post' action='/results'>
 					<input type='text' name='search' placeholder='Search...'>
 					</form>
-					</h1>
+
+					</div>
+					<img class=gallery src='https://files.slack.com/files-pri/TL8AXJYH4-FLJ1L4DPU/screenshot_2019-07-29_at_2.51.31_pm.png'>
+'
+					
 					<nav id="nav">
 
 						<ul>
 							<li><a href="/index">Home</a></li>
-							<li>
-								<a href="#">Layouts</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">Elements</a></li>
+							
 							{% if username not in session %}
 							<li><a href="/sign_up" class="button primary">Sign Up</a></li>
 							<li><a href="/login" class="button primary">Log In</a></li>
 							{% else %}
 							<li><h1>Welcome: {{user_name}}</h1></li>
+							<li><a href="/index" class="button primary" session_unset()>Log Out</a></li>
 							{% endif %}
 						</ul>
 					</nav>
+					
 				</header>
 
 			<!-- Banner -->

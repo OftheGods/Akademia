@@ -37,6 +37,7 @@ ol, ul {
 	list-style: none;
 }
 
+
 blockquote, q {
 	quotes: none;
 }
@@ -115,6 +116,7 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
+
 		a:hover {
 			color: #e44c65 !important;
 			border-bottom-color: transparent;
@@ -132,7 +134,11 @@ input, select, textarea {
 	p {
 		margin: 0 0 2em 0;
 	}
-
+	.gallery {
+		width:50%;
+		margin-top:15%;
+		opacity:0;
+	}
 	h1, h2, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-weight: 300;
@@ -2239,8 +2245,13 @@ input, select, textarea {
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		width: 100%;
+		width: 50%;
 	}
+	input[type="text"] {
+			width:50%;
+			top:0;
+			left:100px;
+		}
 
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
@@ -2257,6 +2268,8 @@ input, select, textarea {
 		textarea:focus {
 			border-color: #e44c65;
 		}
+		
+		
 
 	select {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.3)' /%3E%3C/svg%3E");
@@ -3494,6 +3507,7 @@ input, select, textarea {
 			text-align: right;
 			vertical-align: middle;
 			z-index: 1;
+			top:0;
 		}
 
 			#banner .content header {
@@ -3503,7 +3517,7 @@ input, select, textarea {
 
 				#banner .content header h2 {
 					font-size: 2.5em;
-					margin: 0;
+					margin-top:0;
 				}
 
 				#banner .content header p {

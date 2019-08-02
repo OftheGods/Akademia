@@ -131,9 +131,13 @@
 		    padding: 0 1em;
             margin:10px;
             color:white;
+
 }
         select option {
             background-color:rgba(23, 24, 32, 0.95);
+        }
+        .month {
+        float:left;
         }
 
             
@@ -141,15 +145,15 @@
     </head>
     <body>
         <h1> Payment Method: </h1>
-        <form method=post action=/final_checkout>
+        <form method=post action=/confirmation id=credit_form>
         <ul>
             Full Name on Card
         <li><input type=text name=Full_Name placeholder='Name'</li>
         Card Number
         <li><input type='text' name='Credit' placeholder='Credit Card Number'></li>
         Expiration Date
-        <li><select>
-            <option value="">MM</option>
+        <li><select class=month name=month form=credit_form>
+             <option value="">MM</option>
              <option value="01">01</option>
              <option value="02">02</option>
              <option value="03">03</option>
@@ -163,6 +167,22 @@
              <option value="11">11</option>
              <option value="12">12</option>
              
+        </select></li>
+        <li><select class=year name=year form=credit_form>
+            <option value="">YY</option>
+             <option value="19">19</option>
+             <option value="20">20</option>
+             <option value="21">21</option>
+             <option value="22">22</option>
+             <option value="23">23</option>
+             <option value="24">24</option>
+             <option value="25">25</option>
+             <option value="26">26</option>
+             <option value="27">27</option>
+             <option value="28">28</option>
+             <option value="29">29</option>
+             <option value="30">30</option>
+            
         </select></li>
         
         </ul>

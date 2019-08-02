@@ -13,36 +13,41 @@ mongo = PyMongo(app)
 laptop_page=[]
 username=''
 address=''
+credit='s'
+all_laptops=[]
 laptops=[]
-model.add_list(laptops)
+model.add_list(all_laptops)
 @app.route('/')
 @app.route('/index',methods=['GET','POST'])
 def index():
     global username
+    global laptops
     if request.method=='POST':
         user_data = request.form
-        if user_data['sign/log'] == 'Sign In':
-            username = user_data['username']
-            password=user_data['pass']
-            accounts=mongo.db.accounts
-            existing_user=accounts.find_one({"username":username})
-            if existing_user is None:
-                accounts.insert({'username':username,'password':password})
-                session['username'] = username
-                return redirect('/index')
+        print(user_data)
+        accounts=mongo.db.accounts
+        existing_user=accounts.find_one({"username":user_data['username']})
+        if user_data['sign/log'] == 'Log In':
+            if existing_user:
+                if existing_user['password']==user_data['pass']:
+                    session['username'] = existing_user['username']
+                    username = existing_user['username']
+                    return redirect(url_for('index'))
+    
+                else:
+                    return 'Invalid password'
             else:
-                return redirect('/index')
+                return "User doesn't exist"
         else:
-            username = user_data['username']
-            password=user_data['pass']
-            accounts=mongo.db.accounts
-            existing_user=accounts.find_one({"username":username})
-            if existing_user is None:
-                return redirect('/index')
+            if existing_user:
+                return 'Username is taken'
             else:
-                if existing_user['password'] == password:
-                    session['username'] = username
-                    return redirect('/index')
+                accounts.insert({"username":user_data['username'],"password":user_data['pass']})
+                session['username'] = user_data['username']
+                session['loggedin'] = True
+                username= existing_user['username']
+                return redirect(url_for('index'))
+        
                 
         
     else:
@@ -50,14 +55,14 @@ def index():
 
 @app.route('/results',methods=['GET','POST'])
 def results():
-    global laptops
+    global all_laptops
     laptops=[]
     if request.method=='POST':
         user_data = request.form
         user_search = user_data['search']
         laptops = model.return_results(user_search)
         if laptops == 'None':
-            return render_template('no_results.html')
+            return render_template('results.html',user_search=user_search)
         return render_template('results.html',user_search=user_search,laptops=laptops)
     else:
         return redirect('/index')
@@ -68,7 +73,7 @@ def laptop(laptop):
     global laptop_page
     global laptops
     laptop = int(laptop)
-    laptop_page = laptops[laptop]
+    laptop_page = all_laptops[laptop]
     return render_template('laptops.html',laptop_page=laptop_page)
 
 @app.route('/checkout')
@@ -85,16 +90,7 @@ def checkout2():
         return redirect ('/index')
 
 
-@app.route('/success', methods=['GET','POST'])
-def success():
-    global laptops
-    if request.method=='POST':
-        user_data = request.form
-        if user_data['submit']=='Buy':
-            return 'You have successfully purchased the '+laptops[0]['name']+' for $'+str(laptops[0]['price'])
-        elif user_data['submit'] =='Rent':
-            total_price = round(float(user_data['months'])*float(laptops[0]['rental']),2)
-            return 'You have successfully rented the '+laptops[0]['name']+' for $'+str(total_price)+' over '+str(user_data['months']+' months')
+
             
 @app.route('/sign_up')
 def sign_up():
@@ -103,3 +99,22 @@ def sign_up():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/confirmation',methods=['GET','POST'])
+def final_checkout():
+    if request.method =='POST':
+        global credit
+        global address
+        global laptop_page
+        print (address)
+
+        credit=request.form
+        print(credit)
+        credit_show=model.return_credit(credit['Credit'])
+        return render_template('confirmation.html',laptop_page=laptop_page,credit=credit,address=address,credit_show=credit_show)
+    else:
+        return redirect('/index')
+
+@app.route('/success')
+def success():
+    return render_template('success.html')

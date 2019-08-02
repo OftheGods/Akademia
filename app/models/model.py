@@ -1,6 +1,4 @@
 
-
-
 from difflib import SequenceMatcher
 
 
@@ -20,6 +18,7 @@ class Laptop:
         self.description=description
 
     
+
 
             
             
@@ -79,10 +78,17 @@ def return_results(search_id):
             up=i.name.upper()
             search_id=search_id.upper()
             similarity=similar(up,search_id)
-            if similarity >0.25:
+            if similarity >0.4:
                 results.append({'name':i.name,'image':i.image,'price':i.price,'rental':i.rental,'id':i.id})
         
         if not results:
                 return 'None'
     return results
 
+def return_credit(num):
+    num = str(num)
+    return("*"*12+num[12:16])
+
+
+    
+    
