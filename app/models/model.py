@@ -73,6 +73,9 @@ def return_results(search_id):
     if search_id == 'View our Laptops':
         for i in laptops:
             results.append({'name':i.name,'image':i.image,'price':i.price,'rental':i.rental,'id':i.id})
+    elif not search_id:
+        for i in laptops:
+            results.append({'name':i.name,'image':i.image,'price':i.price,'rental':i.rental,'id':i.id})
     else:
         for i in laptops:
             up=i.name.upper()

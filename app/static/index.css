@@ -25,6 +25,42 @@ section, summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;}
 
+.gallery {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	margin-top:100px;
+	opacity:1.0;
+	
+}
+.gallery:hover span {
+	animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+    from {
+        color: rgb(255, 0, 0);
+    }
+    16.6% {
+        color: rgb(255, 0, 255);
+    }
+    33.3% {
+        color: rgb(0, 0, 255);
+    }
+    50% {
+        color: rgb(0, 255, 255);
+    }
+    66.6% {
+        color: rgb(0, 255, 0);
+    }
+    83.3% {
+        color: rgb(255, 255, 0);
+    }
+    to {
+        color: rgb(255, 0, 0);
+    }
+}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
@@ -114,7 +150,6 @@ input, select, textarea {
 		border-bottom: dotted 1px;
 		color: #e44c65;
 		text-decoration: none;
-		opacity:1;
 	}
 
 
@@ -2246,11 +2281,11 @@ input, select, textarea {
 		width: 100%;
 	}
 	input[type="text"] {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:15px;
 			width:33%;
-			display: block; 
-		margin-right: auto; 
-		margin-left: auto;
-		margin-top:20px;
 			
 		}
 
@@ -2269,28 +2304,7 @@ input, select, textarea {
 		textarea:focus {
 			border-color: #e44c65;
 		}
-	.gallery {
-		animation-name: opacity_change;
-        animation-duration: 15s;
-		display: block; 
-		margin-left:auto;
-		margin-right: auto; 
-		margin-top:100px;
-		width:50%;
-		opacity:1;
-	
 		
-	}
-	            @keyframes opacity_change {
-  from {
-      opacity: 0;
-      
-  }
-  to {
-      opacity: 1;
-}
-}
-
 		
 
 	select {

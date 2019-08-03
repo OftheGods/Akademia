@@ -80,7 +80,7 @@
     </head>
     <body>
         <h1> Shipping Directions: </h1>
-        <form method=post action=/checkout2>
+        <form method=post action=/accounts/{{username}}>
         <ul>
         State/Province/Region
         <li><input type='text' name='State' required placeholder='State...'></li>
@@ -96,7 +96,7 @@
         Email
         <li><input type='text' name='Email' required placeholder='Email...'></li>
         </ul>
-        <input type='submit' value='Next Step'>
+        <input type='submit' name='Location/Credit' value='Add New Location'>
         </form>
     </body>
 </html>

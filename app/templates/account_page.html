@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>
+            Account Page
+        </title>
+        <style>
+            body {
+                background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+                color:white;
+            }
+            body h1, h3 {
+                text-align:center;
+                color:#e44c65;
+            }
+            a:link {
+                text-decoration: none;
+                color:#e44c65;
+                font-size:30px;
+            }
+            a:visited {
+                color:#e44c65;
+            }
+            a:hover {
+                color:#4BB543;
+            }
+            .address {
+                border-bottom:solid #e44c65;
+                text-align:center;
+            }
+            .credit {
+                border-bottom:solid #e44c65;
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <a href='/index'>Home</a>
+        <h1> Welcome {{username}}</h1>
+        
+        {% if address %}
+        <div class=address>
+        <h3>Address:</h3>
+        <p>{{address['Street_and_Number']}}, {{address['City']}}, {{address['State']}}</p>
+        <p>{{address['Apt_and_Suite']}}, {{address['Zip_Code']}}</p>
+        <p>{{address['Phone_Number']}}</p>
+        <p>{{address['Email']}}</p>
+        </div>
+        {% else %}
+        <a href='/add_location'>Add New Location</a>
+        {% endif %}
+        {% if credit %}
+        <div class=credit>
+        <h3>Credit Info:</h3>
+        <p>Credit Card Number: {{credit_show}}</p>
+        <p>Expiration Date: {{credit['month']}}/{{credit['year']}}</p>
+        {% else %}
+        </div>
+        <div>
+        <a href='/add_credit'>Add New Credit Card</a>
+        </div>
+        {% endif %}
+
+        
+        
+    </body>
+</html>

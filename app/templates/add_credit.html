@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>Checkout</title>
+        <style>
+        body {
+            background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+            color:#e44c65;
+        }
+        body h1 {
+            color:white;
+        }
+        
+        
+        input[type=text] {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition: border-color 1.0s ease;
+		    transition: margin-bottom 0.7s ease;
+            width:30%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+		    text-decoration: none;
+            margin:10px;
+            color:white;
+        }
+        
+        input[type=text]:focus {
+            border-style:none;
+            border-bottom:solid;
+            border-bottom-color: #e44c65;
+            border-radius:0px;
+            margin-bottom:30px;
+        }
+        input[type=submit] {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition:background-color 1.0s ease;
+            width:10%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+		    text-decoration: none;
+            margin:10px;
+            color:white;
+        }
+        input[type=submit]:hover {
+            background-color:#e44c65;
+            border-style:none;
+        }
+        input[type=password] {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition: border-color 1.0s ease;
+		    transition: margin-bottom 0.7s ease;
+            width:30%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+		    text-decoration: none;
+            margin:10px;
+            color:white;
+            
+        }
+        input[type=password]:focus {
+            border-style:none;
+            border-bottom:solid;
+            border-bottom-color: #e44c65;
+            border-radius:0px;
+            margin-bottom:30px;
+        }
+        ul {
+            list-style-type:none;
+        }
+        select {
+            -moz-appearance: none;
+		    -webkit-appearance: none;
+		    -ms-appearance: none;
+		    appearance: none;
+            -moz-transition: border-color 1.0s ease;
+		    -webkit-transition: border-color 1.0s ease;
+		    -ms-transition: border-color 1.0s ease;
+		    transition: border-color 1.0s ease;
+		    transition: margin-bottom 0.7s ease;
+            width:10%;
+            height:50px;
+            border-style:solid;
+            border-bottom:solid #e44c65;
+            border-radius:4px;
+            background:transparent;
+            border-color:rgba(255, 255, 255, 0.3);
+            box-shadow:none;
+            display: block;
+		    outline: 0;
+		    padding: 0 1em;
+            margin:10px;
+            color:white;
+
+}
+        select option {
+            background-color:rgba(23, 24, 32, 0.95);
+        }
+        .month {
+        float:left;
+        }
+
+            
+        </style>
+    </head>
+    <body>
+        <h1> Payment Method: </h1>
+        <form method=post action=/accounts/{{username}} id=credit_form>
+        <ul>
+            Full Name on Card
+        <li><input type=text name=Full_Name placeholder='Name'</li>
+        Card Number
+        <li><input type='text' name='Credit' placeholder='Credit Card Number'></li>
+        Expiration Date
+        <li><select class=month name=month form=credit_form>
+             <option value="">MM</option>
+             <option value="01">01</option>
+             <option value="02">02</option>
+             <option value="03">03</option>
+             <option value="04">04</option>
+             <option value="05">05</option>
+             <option value="06">06</option>
+             <option value="07">07</option>
+             <option value="08">08</option>
+             <option value="09">09</option>
+             <option value="10">10</option>
+             <option value="11">11</option>
+             <option value="12">12</option>
+             
+        </select></li>
+        <li><select class=year name=year form=credit_form>
+            <option value="">YY</option>
+             <option value="19">19</option>
+             <option value="20">20</option>
+             <option value="21">21</option>
+             <option value="22">22</option>
+             <option value="23">23</option>
+             <option value="24">24</option>
+             <option value="25">25</option>
+             <option value="26">26</option>
+             <option value="27">27</option>
+             <option value="28">28</option>
+             <option value="29">29</option>
+             <option value="30">30</option>
+            
+        </select></li>
+        
+        </ul>
+        <input type='submit' name='Location/Credit' value='Add Credit Card'>
+        </form>
+    </body>
+</html>
