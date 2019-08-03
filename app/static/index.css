@@ -61,6 +61,11 @@ section, summary, time, mark, audio, video {
         color: rgb(255, 0, 0);
     }
 }
+
+#logo img{
+	width:50%;
+	
+}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}

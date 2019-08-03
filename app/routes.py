@@ -14,7 +14,9 @@ laptop_page=[]
 username=None
 address=None
 credit=None
+picture = None
 credit_show=None
+error=None
 all_laptops=[]
 laptops=[]
 model.add_list(all_laptops)
@@ -26,6 +28,7 @@ def index():
     global address
     global credit
     global credit_show
+    global error
     if request.method=='POST':
         user_data = request.form
         print(user_data)
@@ -40,26 +43,34 @@ def index():
                     if existing_user['credit']:
                         credit=existing_user['credit']
                         credit_show=model.return_credit(credit['Credit'])
+                    if existing_user['picture']:
+                        picture = existing_user['picture']
                     username = existing_user['username']
+                    error=None
                     return redirect(url_for('index'))
     
                 else:
-                    return 'Invalid password'
+                    error="Incorrect Password"
+                    return redirect('/login')
             else:
-                return "User doesn't exist"
+                error="User doesn't exist"
+                return redirect('/login')
         else:
             if existing_user:
-                return 'Username is taken'
+                error="Username is taken"
+                return redirect('/sign_up')
             else:
-                accounts.insert({"username":user_data['username'],"password":user_data['pass'],"address":None,"credit":None})
+                accounts.insert({"username":user_data['username'],"password":user_data['pass'],"address":None,"credit":None,"picture":None})
                 session['username'] = user_data['username']
                 session['loggedin'] = True
                 username= user_data['username']
+                error=None
                 return redirect(url_for('index'))
         
                 
         
     else:
+        error=None
         return render_template('index.html',laptops=laptops,username=username)
 
 @app.route('/results',methods=['GET','POST'])
@@ -114,11 +125,13 @@ def checkout2():
             
 @app.route('/sign_up')
 def sign_up():
-    return render_template('sign_up.html')
+    global error
+    return render_template('sign_up.html',error=error)
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    global error
+    return render_template('login.html',error=error)
 
 @app.route('/confirmation',methods=['GET','POST'])
 def final_checkout():
@@ -146,6 +159,7 @@ def accounts(username_):
     global credit
     global credit_show
     global username
+    global picture
     if request.method=='POST':
         userdata=request.form
         if userdata['Location/Credit'] == "Add New Location":
@@ -153,13 +167,19 @@ def accounts(username_):
             accounts=mongo.db.accounts
             user = accounts.find_one({"username":username_})
             computer_accounts=mongo.db
-            computer_accounts.accounts.update({"username":username_},{"username":username_,"address":userdata,"password":user['password'],"credit":user["credit"]})
+            computer_accounts.accounts.update({"username":username_},{"username":username_,"address":userdata,"password":user['password'],"credit":user["credit"],"picture":user["picture"]})
+        elif userdata['Location/Credit'] == "Add Profile Pic":
+            picture=userdata
+            accounts=mongo.db.accounts
+            user = accounts.find_one({"username":username_})
+            computer_accounts=mongo.db
+            computer_accounts.accounts.update({"username":username_},{"username":username_,"address":user['address'],"password":user['password'],"credit":user["credit"],"picture":userdata})
         else:
             credit=userdata
             accounts=mongo.db.accounts
             user = accounts.find_one({"username":username_})
             computer_accounts=mongo.db
-            computer_accounts.accounts.update({"username":username_},{"username":username_,"address":user['address'],"password":user['password'],"credit":userdata})
+            computer_accounts.accounts.update({"username":username_},{"username":username_,"address":user['address'],"password":user['password'],"picture":user['picture'],"credit":userdata})
             credit_show=model.return_credit(credit['Credit'])
         return redirect('/accounts/'+username)
     else:
@@ -173,16 +193,22 @@ def add_location():
 def add_credit():
     return render_template('add_credit.html',credit=credit,username=username)
 
+@app.route('/add_picture')
+def add_picture():
+    return render_template('add_picture.html',username=username)
+
 @app.route('/logout')
 def logout():
     global username
     global address
     global credit
     global credit_show
+    global music
     address=None
     username=None
     credit=None
     credit_show=None
+    music=None
     
     return redirect('/index')
     
