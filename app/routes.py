@@ -29,6 +29,7 @@ def index():
     global credit
     global credit_show
     global error
+    global picture
     if request.method=='POST':
         user_data = request.form
         print(user_data)
@@ -71,7 +72,7 @@ def index():
         
     else:
         error=None
-        return render_template('index.html',laptops=laptops,username=username)
+        return render_template('index.html',laptops=laptops,username=username,picture=picture)
 
 @app.route('/results',methods=['GET','POST'])
 def results():
@@ -170,6 +171,7 @@ def accounts(username_):
             computer_accounts.accounts.update({"username":username_},{"username":username_,"address":userdata,"password":user['password'],"credit":user["credit"],"picture":user["picture"]})
         elif userdata['Location/Credit'] == "Add Profile Pic":
             picture=userdata
+            print(picture)
             accounts=mongo.db.accounts
             user = accounts.find_one({"username":username_})
             computer_accounts=mongo.db
@@ -183,7 +185,8 @@ def accounts(username_):
             credit_show=model.return_credit(credit['Credit'])
         return redirect('/accounts/'+username)
     else:
-        return render_template('account_page.html',address=address,username=username,credit=credit,credit_show=credit_show)
+        print(picture)
+        return render_template('account_page.html',address=address,username=username,credit=credit,credit_show=credit_show,picture=picture)
 
 @app.route('/add_location')
 def add_location():
@@ -203,12 +206,12 @@ def logout():
     global address
     global credit
     global credit_show
-    global music
+    global picture
     address=None
     username=None
     credit=None
     credit_show=None
-    music=None
+    picture=None
     
     return redirect('/index')
     
