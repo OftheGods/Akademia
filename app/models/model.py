@@ -27,18 +27,12 @@ class Laptop:
      
 x=1       
 
-Laptop_1=Laptop('Dell XPS 13', 'https://images-na.ssl-images-amazon.com/images/I/71UT3GpjVQL._SL1280_.jpg',1450.00,0,0,"The Dell XPS 13 (2019)")
-
-    
-
-
-
-
-Laptop_2=Laptop('Dell XPS 15', 'https://images-na.ssl-images-amazon.com/images/I/81Yd-xXWdcL._SL1500_.jpg',1585.00,0,1)
-Laptop_3=Laptop('Apple Macbook Pro', 'https://images-na.ssl-images-amazon.com/images/I/61SJu997CCL._SL1500_.jpg',1600.00,0,2)
-Laptop_4=Laptop('Apple Macbook Air', 'https://images-na.ssl-images-amazon.com/images/I/51xZz6jSHSL._SL1024_.jpg',950.00,0,3)
-Laptop_5=Laptop('Huawei Matebook 13', 'https://images-na.ssl-images-amazon.com/images/I/51XMAo9vzHL._SL1000_.jpg',1200.00,0,4)
-Laptop_6=Laptop('Huawei Matebook X Pro', 'https://c1.neweggimages.com/ProductImage/34-324-031-V07.jpg',1522.62,0,5)
+Laptop_1=Laptop('Acer Aspire 5', 'https://images-na.ssl-images-amazon.com/images/I/81ecPpDIh%2BL._SL1500_.jpg',1450.00,0,0,"The Dell XPS 13 (2019)")
+Laptop_2=Laptop('HP 15z', 'https://images-na.ssl-images-amazon.com/images/I/61%2BYjO3x7bL._SL1000_.jpg',1585.00,0,1)
+Laptop_3=Laptop('Dell Inspiron 3000 High Performance 17-Inch', 'https://images-na.ssl-images-amazon.com/images/I/61SGTPVClFL._SL1000_.jpg',1600.00,0,2)
+Laptop_4=Laptop('Lenovo Ideapad 330S', 'https://images-na.ssl-images-amazon.com/images/I/41msLXYG6mL.jpg',950.00,0,3)
+Laptop_5=Laptop('Dell Inspiron 5575 15.6" Laptop', 'https://images-na.ssl-images-amazon.com/images/I/71IejwEL2BL._SL1500_.jpg',1200.00,0,4)
+Laptop_6=Laptop('Dell Inspiron 3580', 'https://images-na.ssl-images-amazon.com/images/I/61CLFKt2wlL._SL1000_.jpg',1522.62,0,5)
 Laptop_7=Laptop('HP Spectre x360', 'https://images-na.ssl-images-amazon.com/images/I/717iiI8wWxL._SL1500_.jpg',1169.00,0,6)
 Laptop_8=Laptop('HP Envy x360','https://images-na.ssl-images-amazon.com/images/I/81JkfTSj5jL._SL1500_.jpg',940.00,0,7)
 Laptop_9=Laptop('Acer Swift 3','https://images-na.ssl-images-amazon.com/images/I/71SM4fSRzzL._SL1500_.jpg',694.70,0,8)
