@@ -53,16 +53,28 @@
 			box-shadow: none;
 			color: #ffffff !important;
 			width:10%;
-			margin-bottom:10px;
+			display:block;
+			margin-left:auto;
+		    margin-right:auto;
+			margin-top:20px;
+			margin-bottom:20px;
 		}
 		.button.primary:hover {
 				background-color: #e76278;
 		}
 		.address, .credit {
 		    text-align: center;
+		    color:white;
 		}
+		.credit:hover {
+		    color:#e44c65;
+		}
+		.address:hover {
+		    color:#e44c65;
+		}
+		
 		.profilepic {
-		    border-radius:5000px;
+		    border-radius:24px;
 		    width:10%;
 		    display:block;
 		    margin-left:auto;
@@ -75,7 +87,7 @@
         <h1> Welcome {{username}}</h1>
         
         {% if picture %}
-        <img class=profilepic src={{picture['picture']}}>
+        <a href="/change_picture"><img class=profilepic src="{{picture['picture']}}"></a>
         {% else %}
         <div>
         <a href='/add_picture' class="button primary">Add New Profile Pic</a>
@@ -83,6 +95,7 @@
         {% endif %}
         
         {% if address %}
+        <a href="/change_address">
         <div class=address>
         <h3>Address:</h3>
         <p>{{address['Street_and_Number']}}, {{address['City']}}, {{address['State']}}</p>
@@ -90,16 +103,19 @@
         <p>{{address['Phone_Number']}}</p>
         <p>{{address['Email']}}</p>
         </div>
+        </a>
         {% else %}
         <a href='/add_location' class="button primary">Add New Location</a>
         {% endif %}
         {% if credit %}
+        <a href='/change_credit'>
         <div class=credit>
         <h3>Credit Info:</h3>
         <p>Credit Card Number: {{credit_show}}</p>
         <p>Expiration Date: {{credit['month']}}/{{credit['year']}}</p>
-        {% else %}
         </div>
+        </a>
+        {% else %}
         <div>
         <a href='/add_credit' class="button primary">Add New Credit Card</a>
         </div>

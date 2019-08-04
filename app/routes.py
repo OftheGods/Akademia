@@ -200,6 +200,39 @@ def add_credit():
 def add_picture():
     return render_template('add_picture.html',username=username)
 
+@app.route('/change_picture')
+def change_picture():
+    global picture
+    global username
+    picture = None
+    accounts=mongo.db.accounts
+    user = accounts.find_one({"username":username})
+    computer_accounts=mongo.db
+    computer_accounts.accounts.update({"username":username},{"username":username,"address":user['address'],"password":user['password'],"credit":user["credit"],"picture":None})
+    return redirect('/add_picture')
+
+@app.route('/change_address')
+def change_address():
+    global address
+    global username
+    address=None
+    accounts=mongo.db.accounts
+    user = accounts.find_one({"username":username})
+    computer_accounts=mongo.db
+    computer_accounts.accounts.update({"username":username},{"username":username,"address":None,"password":user['password'],"credit":user["credit"],"picture":user['picture']})
+    return redirect('/add_location')
+
+@app.route('/change_credit')
+def change_credit():
+    global credit
+    global username
+    credit=None
+    accounts=mongo.db.accounts
+    user = accounts.find_one({"username":username})
+    computer_accounts=mongo.db
+    computer_accounts.accounts.update({"username":username},{"username":username,"address":user['address'],"password":user['password'],"credit":None,"picture":user['picture']})
+    return redirect('/add_credit')
+
 @app.route('/logout')
 def logout():
     global username

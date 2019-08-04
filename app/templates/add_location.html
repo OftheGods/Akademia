@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Checkout</title>
+        <title>Location</title>
         <style>
         body {
             background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
@@ -75,10 +75,26 @@
         ul {
             list-style-type:none;
         }
+        a {
+		-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		color: #e44c65;
+		font-size:20px;
+		margin-right: 63%;
+		text-decoration: none;
+	}
+
+		a:hover {
+			color: #4BB543;
+			border-bottom-color: transparent;
+		}
         
         </style>
     </head>
     <body>
+        <a href=/index>Home</a>
         <h1> Shipping Directions: </h1>
         <form method=post action=/accounts/{{username}}>
         <ul>

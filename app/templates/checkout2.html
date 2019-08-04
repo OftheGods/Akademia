@@ -139,6 +139,9 @@
         .month {
         float:left;
         }
+        .CVC {
+		    width:15%;
+		}
 
             
         </style>
@@ -148,7 +151,7 @@
         <form method=post action=/confirmation id=credit_form>
         <ul>
             Full Name on Card
-        <li><input type=text name=Full_Name required autofocus placeholder='Name'</li>
+        <li><input type=text name=Full_Name required autofocus placeholder='Name'></li>
         Card Number
         <li><input type='text' name='Credit' required placeholder='Credit Card Number'></li>
         Expiration Date
@@ -184,6 +187,9 @@
              <option value="30">30</option>
             
         </select></li>
+        <div class=CVC>
+        <li><input type=text name='CVC' required placeholder='CVC'></li>
+        </div>
         
         </ul>
         <input type='submit' value='Next Step'>

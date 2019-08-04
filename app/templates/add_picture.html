@@ -1,10 +1,109 @@
 <html>
     <head>
         <title> Add Profile Pic</title>
+        <style>
+        
+        body {
+            background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
+        }
+            input[type='text'], input[type='password'], input[type='email'], select {
+        height: 3em;
+}
+input[type='text'], input[type='password'], input[type='email'], select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: border-color 0.2s ease-in-out;
+    -webkit-transition: border-color 0.2s ease-in-out;
+    -ms-transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
+    background: transparent;
+    border-radius: 4px;
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    color: white;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    margin-top:50px;
+    text-decoration: none;
+    width: 30%;
+}
+
+ input, select, textarea {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Roboto",Helvetica,sans-serif;
+    font-size: 15pt;
+    font-weight: 100;
+    line-height: 1.75em;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+input[type=text]:focus {
+    border-color:#e44c65;
+}
+.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 4px;
+		border: 0;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 300;
+		height: 3em;
+		line-height: 3em;
+		padding: 0 2.25em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+        .button.primary {
+			background-color: #e44c65;
+			box-shadow: none;
+			color: #ffffff !important;
+			margin-top:20px;
+		}
+		.button.primary:hover {
+				background-color: #e76278;
+		}
+		a {
+		-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		color: #e44c65;
+		font-size:20px;
+		margin-right: 63%;
+		text-decoration: none;
+	}
+
+		a:hover {
+			color: #4BB543;
+			border-bottom-color: transparent;
+		}
+        </style>
     </head>
     <body>
+        <a href=/index>Home</a>
         <form method='post'  action=/accounts/{{username}}>
-            <input type="text" name=picture>
-       <input type=submit name=Location/Credit value='Add Profile Pic'>
+            <input type="text" placeholder='Add Picture Url...' required autofocus name=picture>
+       <input type=submit name=Location/Credit  class= 'button primary' value='Add Profile Pic'>
     </body>
 </html>

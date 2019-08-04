@@ -15,6 +15,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="static/index.css" />
 		<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+		<style>
+			.gallery {
+				
+				border-radius:10px;
+			}
+			.profile {
+				animation-name: color_change;
+				animation-duration:20s;
+				animation-iteration-count:infinite;
+			}
+			@keyframes color_change {
+				0%   {color:white;}
+  				20%  {color:#e44c65;}
+  				40%  {color: orange;}
+  				60% {color: yellow;}
+  				80% {color: lightgreen;}
+  				100% {color: cyan;}
+			}
+				
+				
+
+		</style>
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
@@ -37,7 +59,7 @@
 						<ul>
 							<li><a href="/index">Home</a></li>
 							{% if username != None %}
-							<li><a href="/accounts/{{username}}">{{username}}</a></li>
+							<li><a href="/accounts/{{username}}" class=profile>{{username}}</a></li>
 							<li><a href=/logout class='button primary'>Log Out</a>
 							{% else %}
 							<li><a href="/sign_up" class="button primary">Sign Up</a></li>

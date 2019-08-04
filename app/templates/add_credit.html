@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Checkout</title>
+        <title>Credit</title>
         <style>
         body {
             background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("http://7-themes.com/data_images/out/27/6860314-serene-wallpaper-hd.jpg");
@@ -139,11 +139,29 @@
         .month {
         float:left;
         }
+        a {
+		-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		color: #e44c65;
+		font-size:20px;
+		margin-right: 63%;
+		text-decoration: none;
+	}
 
+		a:hover {
+			color: #4BB543;
+			border-bottom-color: transparent;
+		}
+		.CVC {
+		    width:15%;
+		}
             
         </style>
     </head>
     <body>
+        <a href=/index>Home</a>
         <h1> Payment Method: </h1>
         <form method=post action=/accounts/{{username}} id=credit_form>
         <ul>
@@ -184,6 +202,9 @@
              <option value="30">30</option>
             
         </select></li>
+        <div class=CVC>
+        <li><input type=text name='CVC' required placeholder='CVC'></li>
+        </div>
         
         </ul>
         <input type='submit' name='Location/Credit' value='Add Credit Card'>
