@@ -75,7 +75,7 @@ def return_results(search_id):
             up=i.name.upper()
             search_id=search_id.upper()
             similarity=similar(up,search_id)
-            if similarity >0.4:
+            if similarity >0.6:
                 results.append({'name':i.name,'image':i.image,'price':i.price,'rental':i.rental,'id':i.id})
         
         if not results:
