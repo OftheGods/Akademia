@@ -33,7 +33,7 @@ Laptop_3=Laptop('Dell Inspiron 3000', 'https://images-na.ssl-images-amazon.com/i
 Laptop_4=Laptop('Lenovo Ideapad 330S', 'https://images-na.ssl-images-amazon.com/images/I/41msLXYG6mL.jpg',950.00,0,3)
 Laptop_5=Laptop('Dell Inspiron 5575', 'https://images-na.ssl-images-amazon.com/images/I/71IejwEL2BL._SL1500_.jpg',1200.00,0,4)
 Laptop_6=Laptop('Dell Inspiron 3580', 'https://images-na.ssl-images-amazon.com/images/I/61CLFKt2wlL._SL1000_.jpg',1522.62,0,5)
-Laptop_7=Laptop('HP Spectre x360', 'https://images-na.ssl-images-amazon.com/images/I/717iiI8wWxL._SL1500_.jpg',1169.00,0,6)
+Laptop_7=Laptop('Surface Go 8GB RAM', 'https://images-na.ssl-images-amazon.com/images/I/61vAmTmH3FL._SL1200_.jpg',1169.00,0,6)
 Laptop_8=Laptop('HP Envy x360','https://images-na.ssl-images-amazon.com/images/I/81JkfTSj5jL._SL1500_.jpg',940.00,0,7)
 Laptop_9=Laptop('Acer Swift 3','https://images-na.ssl-images-amazon.com/images/I/71SM4fSRzzL._SL1500_.jpg',694.70,0,8)
 Laptop_10=Laptop('Acer Switch 3','https://images-na.ssl-images-amazon.com/images/I/A1p38mDCdfL._SL1500_.jpg',430.00,0,9)
@@ -59,7 +59,6 @@ def add_list(lst):
     for i in laptops:
         lst.append(i)
     
-
 
 def return_results(search_id):
     global laptops
