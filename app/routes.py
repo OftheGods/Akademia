@@ -75,6 +75,7 @@ def index():
         
     else:
         error=None
+        
         return render_template('index.html',laptops=laptops,username=username,picture=picture)
 
 @app.route('/results',methods=['GET','POST'])
