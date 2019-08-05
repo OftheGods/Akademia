@@ -248,6 +248,10 @@ def logout():
     
     return redirect('/index')
     
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
+    
 
 
 
