@@ -75,7 +75,9 @@ def index():
         
     else:
         error=None
-        
+        username = None
+        if session['username']:
+            username= session['username']
         return render_template('index.html',laptops=laptops,username=username,picture=picture)
 
 @app.route('/results',methods=['GET','POST'])
