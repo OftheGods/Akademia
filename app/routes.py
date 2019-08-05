@@ -38,15 +38,18 @@ def index():
         if user_data['sign/log'] == 'Log In':
             if existing_user:
                 if existing_user['password']==user_data['pass']:
+                    username = existing_user['username']
                     session['username'] = existing_user['username']
+                    address=None
                     if existing_user['address']:
                         address=existing_user['address']
+                    credit=None
                     if existing_user['credit']:
                         credit=existing_user['credit']
                         credit_show=model.return_credit(credit['Credit'])
+                    picture=None
                     if existing_user['picture']:
                         picture = existing_user['picture']
-                    username = existing_user['username']
                     error=None
                     return redirect(url_for('index'))
     
