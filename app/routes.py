@@ -157,14 +157,15 @@ def final_checkout():
     global credit_show
     global laptop_page
     global months
+    total=model.total_price(30,months)
     if request.method =='POST':
         print (address)
         credit=request.form
         print(credit)
         credit_show=model.return_credit(credit['Credit'])
-        return render_template('confirmation.html',laptop_page=laptop_page,credit=credit,address=address,credit_show=credit_show)
+        return render_template('confirmation.html',laptop_page=laptop_page,credit=credit,address=address,credit_show=credit_show,total=total)
     else:
-        return render_template('confirmation.html',laptop_page=laptop_page,credit=credit,address=address,credit_show=credit_show)
+        return render_template('confirmation.html',laptop_page=laptop_page,credit=credit,address=address,credit_show=credit_show,total=total)
 
 @app.route('/success')
 def success():

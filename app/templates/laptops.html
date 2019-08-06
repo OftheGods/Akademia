@@ -152,13 +152,14 @@ input[type=text]:hover {
         <div>
         
         <img class= gallery src={{laptop_page['image']}}> 
-        <p class=descript>The {{laptop_page['name']}} </p>
+        <p class=descript>The {{laptop_page['name']}} has 8GB Ram </p>
         </div>
-        
+        <div>
         <p>${{laptop_page['rental']}} per month</p>
         <form method='post' action='/checkout'>
             <input type=text name=months placeholder='Months...' required autofocus>
             <input type='submit' class="button primary" value='Rent'>
         </form>
+        </div>
     </body>
 </html>

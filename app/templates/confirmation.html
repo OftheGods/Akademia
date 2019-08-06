@@ -71,6 +71,9 @@
 		.success {
 		    margin-top:150px;
 		}
+		.total {
+			color:#4BB543;
+		}
         </style>
     </head>
     <body>
@@ -85,8 +88,8 @@
         <h3>Credit Info:</h3>
         <p>{{credit_show}}</p>
         <p>{{credit['month']}}/{{credit['year']}}</p>
-        <p>{{laptop_page['name']}}</p>
         <div class=success>
+        <p class=total>Total: ${{total}}</p>
         <a href="/success" class="button primary">Confirm</a>
         </div>
         </div>
