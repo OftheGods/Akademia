@@ -17,6 +17,7 @@ credit=None
 picture = None
 credit_show=None
 error=None
+months=None
 all_laptops=[]
 laptops=[]
 model.add_list(all_laptops)
@@ -40,6 +41,10 @@ def index():
                 if existing_user['password']==user_data['pass']:
                     username = existing_user['username']
                     session['username'] = existing_user['username']
+                    session['address'] = existing_user['address']
+                    session['credit'] = existing_user['credit']
+                    session['error'] = None
+                    session['credit_show'] = None
                     address=None
                     if existing_user['address']:
                         address=existing_user['address']
@@ -50,10 +55,12 @@ def index():
                     picture=None
                     if existing_user['picture']:
                         picture = existing_user['picture']
+                    session['error'] = None
                     error=None
                     return redirect(url_for('index'))
     
                 else:
+                    session['error'] = "Incorrect Password"
                     error="Incorrect Password"
                     return redirect('/login')
             else:
@@ -100,13 +107,19 @@ def laptop(laptop):
     laptop_page = all_laptops[laptop]
     return render_template('laptops.html',laptop_page=laptop_page)
 
-@app.route('/checkout')
+@app.route('/checkout',methods=['GET','POST'])
 def checkout():
     global address
-    if not address:
-        return render_template('checkout.html')
+    global months
+    if request.method == 'POST':
+        userdata=request.form
+        months = userdata['months']
+        if not address:
+            return render_template('checkout.html')
+        else:
+            return redirect('/checkout2')
     else:
-        return redirect('/checkout2')
+        return redirect('/index')
 
 @app.route('/checkout2',methods=['GET','POST'])
 def checkout2():
@@ -143,9 +156,9 @@ def final_checkout():
     global address
     global credit_show
     global laptop_page
+    global months
     if request.method =='POST':
         print (address)
-
         credit=request.form
         print(credit)
         credit_show=model.return_credit(credit['Credit'])
