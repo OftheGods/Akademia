@@ -4,6 +4,10 @@ from app.models import model, formopener
 
 
 from flask_pymongo import PyMongo
+import random
+import time
+import datetime
+from datetime import date
 
 app.secret_key= b'\xe1s\xf1\xad\xccA\xd7\x89\x8e\xde\xe14)\x08\x90\x85'
 app.config['MONGO_DBNAME'] = 'computer_accounts'
@@ -18,6 +22,7 @@ picture = None
 credit_show=None
 error=None
 months=None
+my_orders = None
 all_laptops=[]
 laptops=[]
 model.add_list(all_laptops)
@@ -31,6 +36,7 @@ def index():
     global credit_show
     global error
     global picture
+    global my_orders
     if request.method=='POST':
         user_data = request.form
         print(user_data)
@@ -55,6 +61,10 @@ def index():
                     picture=None
                     if existing_user['picture']:
                         picture = existing_user['picture']
+                    orders=mongo.db.orders
+                    existing_orders=orders.find_one({"username":user_data['username']})
+                    if existing_orders:
+                        my_orders = existing_orders
                     session['error'] = None
                     error=None
                     return redirect(url_for('index'))
@@ -111,9 +121,11 @@ def laptop(laptop):
 def checkout():
     global address
     global months
+    global months_left
     if request.method == 'POST':
         userdata=request.form
         months = userdata['months']
+        months_left = int(userdata['months'])
         if not address:
             return render_template('checkout.html')
         else:
@@ -169,7 +181,18 @@ def final_checkout():
 
 @app.route('/success')
 def success():
-    return render_template('success.html')
+    global laptop_page
+    global username
+    global months
+    global months_left
+    orders = mongo.db.orders
+    order_num = random.randrange(100000,999999)
+    if not username:
+        orders.insert({"ID":order_num,"months":months,"months_left":months_left,"order_date":time.strftime("%x"),"order_renew":datetime.date.today().strftime("%d"),"order_name":laptop_page.name,"order_id":laptop_page.id,"order_image":laptop_page.image,"order_rental":laptop_page.rental,"status":"Active"})
+    else:
+        orders.insert({"username":username,"ID":order_num,"months":months,"months_left":months_left,"order_date":time.strftime("%x"),"order_date":time.strftime("%x"),"order_renew":datetime.date.today().strftime("%d"),"order_name":laptop_page.name,"order_id":laptop_page.id,"order_image":laptop_page.image,"order_rental":laptop_page.rental,"status":"Active"})
+        
+    return render_template('success.html',order_num=order_num)
 
 @app.route('/accounts/<username_>', methods=['GET','POST'])
 def accounts(username_):
@@ -178,6 +201,7 @@ def accounts(username_):
     global credit_show
     global username
     global picture
+    global my_orders
     if request.method=='POST':
         userdata=request.form
         if userdata['Location/Credit'] == "Add New Location":
@@ -193,6 +217,16 @@ def accounts(username_):
             user = accounts.find_one({"username":username_})
             computer_accounts=mongo.db
             computer_accounts.accounts.update({"username":username_},{"username":username_,"address":user['address'],"password":user['password'],"credit":user["credit"],"picture":userdata})
+        elif userdata['Location/Credit'] == "Unactive":
+            computer_accounts=mongo.db
+            orders=mongo.db.orders
+            existing_orders=orders.find_one({'username':username_})
+            computer_accounts.orders.update({"ID":existing_orders['ID']},{"username":existing_orders['username'],"ID":existing_orders['ID'],"months":existing_orders['months'],"months_left":existing_orders['months_left'],"order_date":existing_orders['order_date'],"order_renew":existing_orders['order_renew'],"order_name":existing_orders['order_name'],"order_id":existing_orders['order_id'],"order_image":existing_orders['order_image'],"order_rental":existing_orders['order_rental'],"status":"Unactive"})
+        elif userdata['Location/Credit'] == "Active":
+            computer_accounts=mongo.db
+            orders=mongo.db.orders
+            existing_orders=orders.find_one({'username':username_})
+            computer_accounts.orders.update({"ID":existing_orders['ID']},{"username":existing_orders['username'],"ID":existing_orders['ID'],"months":existing_orders['months'],"months_left":existing_orders['months_left'],"order_date":existing_orders['order_date'],"order_renew":existing_orders['order_renew'],"order_name":existing_orders['order_name'],"order_id":existing_orders['order_id'],"order_image":existing_orders['order_image'],"order_rental":existing_orders['order_rental'],"status":"Active"})
         else:
             credit=userdata
             accounts=mongo.db.accounts
@@ -202,8 +236,11 @@ def accounts(username_):
             credit_show=model.return_credit(credit['Credit'])
         return redirect('/accounts/'+username)
     else:
-        print(picture)
-        return render_template('account_page.html',address=address,username=username,credit=credit,credit_show=credit_show,picture=picture)
+        orders=mongo.db.orders
+        existing_orders=orders.find_one({"username":username_})
+        if existing_orders:
+            my_orders = existing_orders
+        return render_template('account_page.html',address=address,username=username,credit=credit,credit_show=credit_show,picture=picture,my_orders=my_orders)
 
 @app.route('/add_location')
 def add_location():
@@ -249,6 +286,13 @@ def change_credit():
     computer_accounts=mongo.db
     computer_accounts.accounts.update({"username":username},{"username":username,"address":user['address'],"password":user['password'],"credit":None,"picture":user['picture']})
     return redirect('/add_credit')
+
+@app.route('/change_status')
+def change_status():
+    global my_orders
+    global username
+    print(my_orders)
+    return render_template('change_status.html',my_orders=my_orders,username=username)
 
 @app.route('/logout')
 def logout():

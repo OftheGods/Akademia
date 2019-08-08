@@ -80,6 +80,21 @@
 		    margin-left:auto;
 		    margin-right:auto;
 		}
+		.orders{
+		    border-top:solid #e44c65;
+		    margin-top:30px;
+		    padding:10px;
+		}
+		.the_orders {
+		    width:10%;
+		    border-right:solid #e44c65;
+		    padding-right:20px;
+		    float:left;
+		    margin-right:10px;
+		}
+		img {
+		    width:100%;
+		}
         </style>
     </head>
     <body>
@@ -120,6 +135,19 @@
         <a href='/add_credit' class="button primary">Add New Credit Card</a>
         </div>
         {% endif %}
+        {% if my_orders != None %}
+        <h3 class=orders> Existing Orders:</h3>
+        <div class=the_orders>
+        <p>{{my_orders['order_name']}}</p>
+        <img src={{my_orders['order_image']}}>
+        </div>
+        <p>Order ID: {{my_orders['ID']}}</p>
+        <p>Order Date: {{my_orders['order_date']}}</p>
+        <p>${{my_orders['order_rental']}} per month</p>
+        <p>Months left: {{my_orders['months']}}</p>
+        <a href=/change_status>{{my_orders['status']}}</p>
+        {% endif %}
+        
     
         
         
